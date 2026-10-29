@@ -1,0 +1,4 @@
+# Only images go in the repo; videos live on Vimeo
+*.mp4
+*.webm
+*.pdf
