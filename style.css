@@ -171,6 +171,15 @@ header nav a:hover {
   color:var(--color-foreground-100)
 }
 
+/* Page transitions */
+
+.transition-fade {
+  transition:opacity .25s
+}
+html.is-animating .transition-fade {
+  opacity:0
+}
+
 /* Sections */
 
 section {
@@ -188,6 +197,9 @@ section {
 .intro h1 {
   font-size:var(--font-size-huge);
   max-width:28ch
+}
+.intro p {
+  max-width:48ch
 }
 
 /* Work */
@@ -297,9 +309,9 @@ section {
 .case figure video {
   height:auto
 }
-.case figure.inset {
-  width:85%;
-  justify-self:center
+/* For PNGs with transparent sides: an inline aspect-ratio crops the figure to the visible image */
+.case figure.crop img {
+  height:100%
 }
 .case figure.video::after {
   display:none
@@ -316,6 +328,10 @@ section {
   grid-template-columns:repeat(2, 1fr);
   gap:var(--gap-l);
   align-items:start
+}
+/* The images can have rounded transparent corners, so let the page show through */
+.case figure {
+  background:none
 }
 
 /* Missing asset, shows the expected file until it is exported */
@@ -334,9 +350,12 @@ section {
   display:grid;
   gap:var(--gap-l)
 }
+/* The PNGs have transparent sides, so the figure crops to the 990x1280 poster */
 .case-poster figure {
-  width:70%;
-  justify-self:center
+  aspect-ratio:990 / 1280
+}
+.case-poster figure img {
+  height:100%
 }
 .case-poster p {
   font-size:var(--font-size-medium);
@@ -365,9 +384,5 @@ section {
   .projects,
   .case-pair {
     grid-template-columns:1fr
-  }
-  .case figure.inset,
-  .case-poster figure {
-    width:100%
   }
 }
