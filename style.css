@@ -12,18 +12,22 @@
   --font-size-large:calc(var(--font-size-medium) * var(--type-ratio));
   --font-size-huge:calc(var(--font-size-large) * var(--type-ratio));
   --font-size-display:calc(var(--font-size-huge) * var(--type-ratio) * var(--type-ratio) * var(--type-ratio));
-  --color-foreground-100:rgba(58 55 49);
-  --color-foreground-80:rgba(58 55 49/ .8);
-  --color-foreground-50:rgba(58 55 49/ .5);
-  --color-foreground-33:rgba(58 55 49/ 0.33);
-  --color-foreground-5:rgba(58 55 49/ .05);
-  --color-foreground-0:rgba(58 55 49/ 0);
-  --color-background-100:rgb(244 244 244);
-  --color-background-80:rgb(244 244 244 / 0.8);
-  --color-background-50:rgb(244 244 244 / 0.5);
-  --color-background-33:rgb(244 244 244 / 0.33);
-  --color-background-5:rgb(244 244 244 / 0.05);
-  --color-background-0:rgb(244 244 244 / 0);
+  /* Theme colours as RGB channels: light mode #3F4E3E on #CBF2A7 */
+  --fg:63 78 62;
+  --bg:203 242 167;
+  color-scheme:light dark;
+  --color-foreground-100:rgb(var(--fg));
+  --color-foreground-80:rgb(var(--fg) / .8);
+  --color-foreground-50:rgb(var(--fg) / .5);
+  --color-foreground-33:rgb(var(--fg) / .33);
+  --color-foreground-5:rgb(var(--fg) / .05);
+  --color-foreground-0:rgb(var(--fg) / 0);
+  --color-background-100:rgb(var(--bg));
+  --color-background-80:rgb(var(--bg) / .8);
+  --color-background-50:rgb(var(--bg) / .5);
+  --color-background-33:rgb(var(--bg) / .33);
+  --color-background-5:rgb(var(--bg) / .05);
+  --color-background-0:rgb(var(--bg) / 0);
   --color-accent-1:rgb(0 28 189);
   --color-accent-2:rgb(228 221 206);
   --color-accent-3:rgb(0 28 189 / .25);
@@ -31,6 +35,16 @@
   --gap-s:clamp(0.5rem, 0.5vw, 1rem);
   --gap-m:clamp(0.75rem, 0.75vw, 1.75rem);
   --gap-l:clamp(1.5rem, 1vw, 3.25rem)
+}
+
+/* Dark mode: #E7F2A7 on #453E4E */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg:231 242 167;
+    --bg:69 62 78;
+    /* The blue accent is unreadable on the dark background, so links use the foreground colour */
+    --color-accent-1:rgb(var(--fg))
+  }
 }
 
 /* Basic reset and styling */
